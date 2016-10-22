@@ -26,13 +26,15 @@
 #define NANOSVGRAST_IMPLEMENTATION
 #include "nanosvgrast.h"
 
-int main()
+int main(int argc, char* argv[])
 {
 	NSVGimage *image = NULL;
 	NSVGrasterizer *rast = NULL;
 	unsigned char* img = NULL;
 	int w, h;
 	const char* filename = "../example/23.svg";
+
+	if (argc >= 2) filename = argv[1];
 
 	printf("parsing %s\n", filename);
 	image = nsvgParseFromFile(filename, "px", 96.0f);
